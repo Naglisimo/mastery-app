@@ -4,6 +4,7 @@ import router from './router'
 // import BaseIcon from './components/BaseIcon.vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import store from './store'
 
 const requireComponent = require.context(
   './components',
@@ -25,5 +26,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
