@@ -99,6 +99,62 @@
       "date": "2022-07-26T11:24:00.000Z",
       "time": "9:00",
       "attendees": []
+    },
+    {
+      "id": 3229,
+      "category": "animal welfare",
+      "organizer": {
+        "id": 1,
+        "name": "Naglis"
+      },
+      "title": "Naujausias SUCCESS",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 87470,
+      "category": "animal welfare",
+      "organizer": {
+        "id": 1,
+        "name": "Naglis"
+      },
+      "title": "dar vienas",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 54296,
+      "category": "animal welfare",
+      "organizer": {
+        "id": 1,
+        "name": "Naglis"
+      },
+      "title": "aasd",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 41218,
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "Naglis"
+      },
+      "title": "hkgv bjhkgbhjkbjhk",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
