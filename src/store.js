@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import EventService from './services/EventService'
 
 Vue.use(Vuex)
 
@@ -15,27 +16,60 @@ export default new Vuex.Store({
             'food',
             'community'
         ],
-        todos: [
-            { id: 1, text: '...', done: true },
-            { id: 2, text: '...', done: false },
-            { id: 3, text: '...', done: true },
-            { id: 4, text: '...', done: false }
-          ]
+        events: [],
+        eventsTotal: 0,
+        event: {},
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        ADD_EVENT(state, event) {
+            state.events.push(event)
+        },
+        SET_EVENTS(state, event) {
+            state.events = event
+        },
+        GET_TOTAL_EVENTS(state, event) {
+            state.eventsTotal = event
+        },
+        SET_EVENT(state, event) {
+            state.event = event
+        }
+    },
+    actions: {
+        createEvent({commit}, event) {
+            return EventService.postEvent(event).then(() => {
+                commit('ADD_EVENT', event)
+            })
+        },
+        fetchEvents({ commit }, { perPage, page }) {
+            EventService.getEvents(perPage, page)
+            .then((res) => {
+              commit('SET_EVENTS', res.data)
+              commit('GET_TOTAL_EVENTS', res.headers['x-total-count'])
+            })
+            .catch(error => {
+              console.log('there was some error', error.response)
+            })
+        },
+        fetchEvent({ commit, getters }, id ) {
+            let event = getters.getEventById(id)
+
+            if (event) {
+                console.log(event)
+                commit('SET_EVENT', event)
+            } else {
+                EventService.getEvent(id)
+                .then(({ data }) => {
+                    commit('SET_EVENT', data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            }
+        }
+    },
     getters: {
-        catLength: state => {
-            return state.categories.length
-        },
-        doneTodos: (state) => {
-            return state.todos.filter(todo => todo.done)
-        },
-        activeTodosCount: (state) => {
-            return state.todos.filter( todo => !todo.done).length
-        },
         getEventById: state => id => {
-            return state.todos.find(todo => todo.id === id)
+            return state.events.find(event => event.id === id)
         }
     }
 })
