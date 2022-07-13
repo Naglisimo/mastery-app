@@ -155,6 +155,20 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 21957,
+      "category": "nature",
+      "organizer": {
+        "id": 1,
+        "name": "Naglis"
+      },
+      "title": "Puppies!!!",
+      "description": "go out with puppies!",
+      "location": "Vilnius",
+      "date": "2022-07-20T09:03:00.000Z",
+      "time": "14:00",
+      "attendees": []
     }
   ]
 }
